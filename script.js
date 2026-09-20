@@ -93,6 +93,48 @@ let currentTime = 0;
 
 let gameState = {};
 
+/* =========================================
+   MOBILE / TOUCH CONTROLS
+========================================= */
+
+function isTouchDevice() {
+    return window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+}
+
+function createTouchControls(buttons) {
+
+    // Don't show touch controls on normal PCs
+    if (!isTouchDevice()) return null;
+
+    const controls = document.createElement("div");
+
+    controls.className = "touch-controls";
+
+    buttons.forEach(buttonData => {
+
+        const button = document.createElement("button");
+
+        button.className = "touch-control";
+        button.textContent = buttonData.label;
+
+        const press = event => {
+            event.preventDefault();
+
+            if (buttonData.action) {
+                buttonData.action();
+            }
+        };
+
+        button.addEventListener("pointerdown", press);
+
+        controls.appendChild(button);
+    });
+
+    document.getElementById("gameArea").appendChild(controls);
+
+    return controls;
+}
+
 const adminFlags = {
     god: false,
     slow: false,
@@ -1357,6 +1399,36 @@ function createDodge() {
 
     const keys = {};
 
+    createTouchControls([
+    {
+        label: "◀",
+        action: () => moveTouch("left")
+    },
+    {
+        label: "▲",
+        action: () => moveTouch("up")
+    },
+    {
+        label: "▼",
+        action: () => moveTouch("down")
+    },
+    {
+        label: "▶",
+        action: () => moveTouch("right")
+    }
+]);
+
+    const moveTouch = direction => {
+
+    if (direction === "left") x -= 8;
+    if (direction === "right") x += 8;
+    if (direction === "up") y -= 8;
+    if (direction === "down") y += 8;
+
+    x = Math.max(4, Math.min(96, x));
+    y = Math.max(4, Math.min(96, y));
+};
+
     const keydown = event => {
         keys[event.key.toLowerCase()] = true;
     };
@@ -2618,7 +2690,20 @@ function createRunner() {
 
     });
 
+    if (isTouchDevice()) {
+
+    createTouchControls([
+        {
+            label: "⬆ JUMP",
+            action: jump
+        }
+    ]);
+
+} else {
+
     player.onclick = jump;
+
+}
 
     function jump() {
 
