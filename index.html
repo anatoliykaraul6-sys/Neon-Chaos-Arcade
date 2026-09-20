@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NEON//CHAOS ARCADE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="cursorGlow"></div>
+
+<div class="background">
+    <div class="grid"></div>
+    <div class="scanlines"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+</div>
+
+<!-- WALKING CHICKEN -->
+<div id="chickenWalker" class="chicken">
+    <div class="chicken-shadow"></div>
+    <div class="chicken-body">
+        <div class="chicken-eye"></div>
+        <div class="chicken-beak"></div>
+        <div class="chicken-comb">▲</div>
+    </div>
+    <div class="chicken-leg leg1"></div>
+    <div class="chicken-leg leg2"></div>
+</div>
+
+<header class="topbar">
+
+    <button class="brand" onclick="showPage('home')">
+        <span class="brand-icon">N</span>
+        <span>
+            NEON//<strong>CHAOS</strong>
+            <small>ARCADE</small>
+        </span>
+    </button>
+
+    <nav>
+        <button onclick="showPage('home')">HOME</button>
+        <button onclick="showPage('arcade')">ARCADE</button>
+        <button onclick="showPage('leaderboard')">LEADERBOARD</button>
+        <button onclick="showPage('badges')">BADGES</button>
+    </nav>
+
+    <div class="top-actions">
+        <button id="soundButton" class="mini-btn" onclick="toggleSound()">🔊</button>
+
+        <button class="mini-btn" onclick="toggleChaos()">
+            ⚡ CHAOS
+        </button>
+
+        <button class="profile-button" onclick="openProfile()">
+            <span id="topAvatar">😎</span>
+            <span id="topUsername">PLAYER_001</span>
+        </button>
+    </div>
+
+</header>
+
+
+<main>
+
+<!-- ================= HOME ================= -->
+
+<section id="homePage" class="page active">
+
+    <div class="hero">
+
+        <div class="hero-badge">
+            <span class="live-dot"></span>
+            SYSTEM ONLINE
+        </div>
+
+        <h1>
+            NEON<span>//</span>CHAOS
+            <strong>ARCADE</strong>
+        </h1>
+
+        <p>
+            A completely unnecessary amount of games,
+            neon lights and questionable decisions.
+        </p>
+
+        <div class="hero-buttons">
+            <button class="primary-btn" onclick="showPage('arcade')">
+                ENTER ARCADE →
+            </button>
+
+            <button class="secondary-btn" onclick="openProfile()">
+                👤 PROFILE
+            </button>
+        </div>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats-row">
+
+        <div class="stat-card">
+            <span>GAMES</span>
+            <strong id="gameCount">14</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>BADGES</span>
+            <strong id="badgeCount">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>CLICK POWER</span>
+            <strong id="clickPowerStat">1</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>CHAOS LEVEL</span>
+            <strong id="chaosLevel">01</strong>
+        </div>
+
+    </div>
+
+
+    <!-- GOOFY CLICKER FEATURE -->
+
+    <div class="featured-clicker">
+
+        <div class="featured-text">
+
+            <span class="section-tag">FEATURED GAME</span>
+
+            <h2>GOOFY CLICKER</h2>
+
+            <p>
+                Click the suspicious creature.
+                Become unnecessarily powerful.
+            </p>
+
+            <button class="primary-btn" onclick="startGame('clicker')">
+                PLAY GOOFY CLICKER →
+            </button>
+
+        </div>
+
+        <div class="mini-goofy">
+
+            <div class="goofy-face">
+                <div class="eye eye-left"></div>
+                <div class="eye eye-right"></div>
+                <div class="mouth"></div>
+                <div class="goofy-hat">?</div>
+            </div>
+
+            <div class="floating-question">???</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUICK ACCESS -->
+
+    <div class="section-heading">
+        <span>QUICK ACCESS</span>
+        <h2>WHAT ARE WE DOING TODAY?</h2>
+    </div>
+
+    <div class="quick-grid">
+
+        <button onclick="showPage('arcade')" class="quick-card">
+            🎮
+            <strong>PLAY GAMES</strong>
+            <small>14 different ways to waste time</small>
+        </button>
+
+        <button onclick="showPage('leaderboard')" class="quick-card">
+            🏆
+            <strong>LEADERBOARD</strong>
+            <small>See your local records</small>
+        </button>
+
+        <button onclick="showPage('badges')" class="quick-card">
+            🏅
+            <strong>BADGE VAULT</strong>
+            <small>Collect suspicious achievements</small>
+        </button>
+
+        <button onclick="openProfile()" class="quick-card">
+            👤
+            <strong>PROFILE</strong>
+            <small>Customize your identity</small>
+        </button>
+
+    </div>
+
+
+    <!-- CODE -->
+
+    <div class="code-panel">
+
+        <div>
+            <span class="section-tag">SECRET ACCESS</span>
+            <h2>UNLOCK SOMETHING STUPID</h2>
+            <p>There may or may not be a secret admin system.</p>
+        </div>
+
+        <div class="code-input-row">
+            <input id="codeInput" placeholder="ENTER SECRET CODE">
+            <button onclick="unlockCode()">UNLOCK</button>
+        </div>
+
+        <div id="codeMessage"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ARCADE ================= -->
+
+<section id="arcadePage" class="page">
+
+    <div class="page-header">
+        <span class="section-tag">14 GAMES ONLINE</span>
+        <h1>THE ARCADE</h1>
+        <p>Pick your poison.</p>
+    </div>
+
+    <div class="game-grid">
+
+        <button class="game-card" onclick="startGame('core')">
+            <span class="game-number">01</span>
+            <div class="game-icon">💥</div>
+            <h2>CORE BREAKER</h2>
+            <p>Destroy the unstable core.</p>
+            <small>CLICK</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('reaction')">
+            <span class="game-number">02</span>
+            <div class="game-icon">⚡</div>
+            <h2>REACTION RUSH</h2>
+            <p>React before your brain does.</p>
+            <small>REACTION</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('dodge')">
+            <span class="game-number">03</span>
+            <div class="game-icon">🟣</div>
+            <h2>DODGE THE VOID</h2>
+            <p>Don't get obliterated.</p>
+            <small>ARROWS / A D</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('memory')">
+            <span class="game-number">04</span>
+            <div class="game-icon">🧠</div>
+            <h2>MEMORY GLITCH</h2>
+            <p>Remember glowing squares.</p>
+            <small>MEMORY</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('bomb')">
+            <span class="game-number">05</span>
+            <div class="game-icon">💣</div>
+            <h2>BOMB DEFUSER</h2>
+            <p>Choose the correct wire.</p>
+            <small>THINK FAST</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('meteor')">
+            <span class="game-number">06</span>
+            <div class="game-icon">☄️</div>
+            <h2>METEOR MAYHEM</h2>
+            <p>Survive the falling rocks.</p>
+            <small>A / D</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('boss')">
+            <span class="game-number">07</span>
+            <div class="game-icon">👾</div>
+            <h2>BOSS FIGHT</h2>
+            <p>Click until the boss regrets existing.</p>
+            <small>CLICK</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('glitch')">
+            <span class="game-number">08</span>
+            <div class="game-icon">🌀</div>
+            <h2>GLITCH ROOM</h2>
+            <p>Find the unstable tile.</p>
+            <small>15 SEC</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('color')">
+            <span class="game-number">09</span>
+            <div class="game-icon">🌈</div>
+            <h2>COLOR SWITCH</h2>
+            <p>Match the correct color.</p>
+            <small>REACTION</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('target')">
+            <span class="game-number">10</span>
+            <div class="game-icon">🎯</div>
+            <h2>TARGET SNIPER</h2>
+            <p>Destroy moving targets.</p>
+            <small>AIM</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('hacker')">
+            <span class="game-number">11</span>
+            <div class="game-icon">🔢</div>
+            <h2>NUMBER HACKER</h2>
+            <p>Click numbers in order.</p>
+            <small>LOGIC</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('gravity')">
+            <span class="game-number">12</span>
+            <div class="game-icon">↕️</div>
+            <h2>GRAVITY FLIP</h2>
+            <p>Switch between floor and ceiling.</p>
+            <small>SPACE / CLICK</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('combo')">
+            <span class="game-number">13</span>
+            <div class="game-icon">🔥</div>
+            <h2>COMBO CLICKER</h2>
+            <p>Click like your keyboard owes you money.</p>
+            <small>10 SECONDS</small>
+        </button>
+
+        <button class="game-card" onclick="startGame('runner')">
+            <span class="game-number">14</span>
+            <div class="game-icon">🏃</div>
+            <h2>PIXEL RUNNER</h2>
+            <p>Jump over absolutely everything.</p>
+            <small>SPACE / CLICK</small>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GAME PAGE ================= -->
+
+<section id="gamePage" class="page">
+
+    <div class="game-top">
+
+        <button class="back-btn" onclick="showPage('arcade')">
+            ← ARCADE
+        </button>
+
+        <div>
+            <span id="gameCategory" class="section-tag">GAME</span>
+            <h1 id="gameTitle">GAME</h1>
+        </div>
+
+        <button class="restart-btn" onclick="restartCurrentGame()">
+            ↻ RESTART
+        </button>
+
+    </div>
+
+    <div class="game-hud">
+
+        <div>
+            <span>SCORE</span>
+            <strong id="gameScore">0</strong>
+        </div>
+
+        <div>
+            <span>TIME</span>
+            <strong id="gameTime">—</strong>
+        </div>
+
+        <div>
+            <span>BEST</span>
+            <strong id="gameBest">0</strong>
+        </div>
+
+    </div>
+
+    <div id="gameArea" class="game-area"></div>
+
+</section>
+
+
+<!-- ================= LEADERBOARD ================= -->
+
+<section id="leaderboardPage" class="page">
+
+    <div class="page-header">
+        <span class="section-tag">LOCAL RECORDS</span>
+        <h1>LEADERBOARD</h1>
+        <p>Only your saved records. No fake bots. No suspicious AI players.</p>
+    </div>
+
+    <div id="leaderboardList" class="leaderboard-list"></div>
+
+</section>
+
+
+<!-- ================= BADGES ================= -->
+
+<section id="badgesPage" class="page">
+
+    <div class="page-header">
+        <span class="section-tag">ACHIEVEMENTS</span>
+        <h1>BADGE VAULT</h1>
+        <p>Collect them all. Some are hidden.</p>
+    </div>
+
+    <div id="badgeGrid" class="badge-grid"></div>
+
+</section>
+
+</main>
+
+
+<!-- RESULT POPUP -->
+
+<div id="resultPopup" class="result-popup">
+
+    <div class="result-box">
+
+        <button class="close-result" onclick="closeResult()">×</button>
+
+        <span class="section-tag">GAME OVER</span>
+
+        <h2 id="resultTitle">NICE.</h2>
+
+        <p id="resultText"></p>
+
+        <button class="primary-btn" onclick="restartCurrentGame()">
+            PLAY AGAIN
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- RANDOM JOKE -->
+
+<div id="jokePopup" class="joke-popup">
+    <span>⚠ SYSTEM MESSAGE</span>
+    <strong id="jokeText">Loading questionable information...</strong>
+</div>
+
+
+<!-- PROFILE -->
+
+<div id="profileModal" class="modal">
+
+    <div class="modal-box">
+
+        <button class="modal-close" onclick="closeProfile()">×</button>
+
+        <span class="section-tag">PLAYER SYSTEM</span>
+
+        <h2>YOUR PROFILE</h2>
+
+        <div class="profile-preview">
+            <div id="profileAvatarPreview" class="profile-avatar">😎</div>
+        </div>
+
+        <label>USERNAME</label>
+        <input id="profileNameInput" maxlength="18">
+
+        <label>PROFILE IMAGE</label>
+        <input id="profileImageInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+
+        <button class="primary-btn full-btn" onclick="saveProfile()">
+            SAVE PROFILE
+        </button>
+
+        <button class="danger-btn full-btn" onclick="resetEverything()">
+            RESET ALL DATA
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ADMIN -->
+
+<div id="adminModal" class="modal">
+
+    <div class="modal-box admin-box">
+
+        <button class="modal-close" onclick="closeAdmin()">×</button>
+
+        <span class="section-tag">ADMIN ACCESS</span>
+
+        <h2>CHAOS CONTROL</h2>
+
+        <div class="admin-status">
+            <span></span>
+            ADMIN ONLINE
+        </div>
+
+        <div class="admin-grid">
+
+            <button onclick="adminCommand('god')">🛡 GOD MODE</button>
+            <button onclick="adminCommand('slow')">🐌 SLOW MODE</button>
+            <button onclick="adminCommand('big')">🔵 BIG CORE</button>
+            <button onclick="adminCommand('boss')">👾 BOSS 1 HP</button>
+
+            <button onclick="adminCommand('infinite')">∞ INFINITE TIME</button>
+            <button onclick="adminCommand('score')">💰 +100 SCORE</button>
+            <button onclick="adminCommand('turbo')">⚡ TURBO</button>
+            <button onclick="adminCommand('gravity')">🌙 LOW GRAVITY</button>
+
+            <button onclick="adminCommand('rainbow')">🌈 RAINBOW</button>
+            <button onclick="adminCommand('rain')">🌧 CHAOS RAIN</button>
+            <button onclick="adminCommand('flash')">💥 FLASH</button>
+            <button onclick="adminCommand('glitch')">📺 GLITCH</button>
+
+            <button onclick="adminCommand('shake')">📳 SHAKE</button>
+            <button onclick="adminCommand('party')">🪩 PARTY MODE</button>
+            <button onclick="adminCommand('meteor')">☄ METEOR STORM</button>
+            <button onclick="adminCommand('invert')">🔄 INVERT</button>
+
+            <button onclick="adminCommand('badges')">🏆 UNLOCK BADGES</button>
+            <button onclick="adminCommand('instant')">⚡ INSTANT WIN</button>
+            <button onclick="adminCommand('restart')">↻ RESTART</button>
+            <button onclick="adminCommand('debug')">🖥 DEBUG</button>
+
+            <button onclick="adminCommand('matrix')">💻 MATRIX</button>
+            <button onclick="adminCommand('clear')">🧹 CLEAR FX</button>
+            <button onclick="adminCommand('all')">☢ ALL POWERS</button>
+            <button onclick="adminCommand('supernova')">🌟 SUPERNOVA</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="update-banner">
+        <span class="update-dot"></span>
+
+        <div>
+            <strong>UPDATE // whenever you ask me to</strong>
+            <small>NEW GAMES • NEW CHAOS • NEW STUFF</small>
+        </div>
+
+        <span class="update-arrow">→</span>
+    </div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
+
+
+
+</body>
+</html>
