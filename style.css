@@ -1875,3 +1875,614 @@ body.party::before {
         opacity: 0;
     }
 }
+
+```css
+/* =========================================
+   EXTRA RESPONSIVE POLISH
+   Phones • Tablets • iPads • Chromebooks
+========================================= */
+
+/* TABLETS / SMALL LAPTOPS */
+@media (max-width: 900px) {
+
+    .topbar {
+        gap: 15px;
+    }
+
+    .brand {
+        flex-shrink: 0;
+    }
+
+    .featured-text h2 {
+        font-size: 32px;
+    }
+
+    .featured-clicker {
+        padding: 35px;
+    }
+
+    .game-card {
+        min-height: 220px;
+        padding: 22px;
+    }
+
+    .game-area {
+        min-height: 500px;
+    }
+
+    .clicker-wrap {
+        padding: 18px;
+    }
+}
+
+
+/* PHONES */
+@media (max-width: 600px) {
+
+    body {
+        width: 100%;
+    }
+
+    /* HEADER */
+
+    .topbar {
+        height: 65px;
+        padding: 0 12px;
+        gap: 8px;
+    }
+
+    .brand {
+        gap: 7px;
+        min-width: 0;
+    }
+
+    .brand-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .brand > span:last-child {
+        font-size: 11px;
+    }
+
+    .brand small {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .profile-button {
+        padding: 7px 9px;
+        font-size: 9px;
+        margin-left: auto;
+    }
+
+    #topUsername {
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+
+    /* PAGE */
+
+    .page {
+        width: calc(100% - 24px);
+        padding: 30px 0 70px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 13vw, 58px);
+        letter-spacing: -3px;
+        line-height: .95;
+    }
+
+    .hero p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons button {
+        width: 100%;
+    }
+
+
+    /* STATS */
+
+    .stats-row {
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-card strong {
+        font-size: 21px;
+    }
+
+
+    /* FEATURED GAME */
+
+    .featured-clicker {
+        padding: 22px;
+        min-height: auto;
+    }
+
+    .featured-text h2 {
+        font-size: 27px;
+    }
+
+    .featured-text p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .featured-text .primary-btn {
+        width: 100%;
+    }
+
+    .mini-goofy {
+        width: 220px;
+        height: 190px;
+    }
+
+
+    /* QUICK ACCESS */
+
+    .section-heading {
+        margin-top: 50px;
+    }
+
+    .section-heading h2 {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+
+    .quick-card {
+        padding: 20px;
+    }
+
+
+    /* SECRET CODE */
+
+    .code-panel {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .code-panel h2 {
+        font-size: 20px;
+    }
+
+    .code-input-row {
+        flex-direction: column;
+    }
+
+    .code-input-row input,
+    .code-input-row button {
+        width: 100%;
+        min-height: 46px;
+    }
+
+
+    /* ARCADE */
+
+    .page-header {
+        margin-bottom: 30px;
+    }
+
+    .page-header h1 {
+        font-size: clamp(34px, 11vw, 55px);
+    }
+
+    .game-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .game-card {
+        min-height: 190px;
+        padding: 22px;
+    }
+
+    .game-icon {
+        font-size: 32px;
+        margin-bottom: 22px;
+    }
+
+
+    /* GAME PAGE */
+
+    .game-top {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .back-btn,
+    .restart-btn {
+        padding: 9px 10px;
+        font-size: 9px;
+    }
+
+    .game-top h1 {
+        font-size: 16px;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .game-hud div {
+        padding: 12px 8px;
+        text-align: center;
+    }
+
+    .game-hud strong {
+        font-size: 15px;
+    }
+
+    .game-area {
+        min-height: 420px;
+        border-radius: 12px;
+    }
+
+
+    /* BIG GAME BUTTONS */
+
+    .combo-button {
+        width: min(220px, 70vw);
+        height: min(220px, 70vw);
+        font-size: 24px;
+    }
+
+    .boss-target {
+        width: min(190px, 55vw);
+        height: min(190px, 55vw);
+    }
+
+    .core-target {
+        width: min(110px, 35vw);
+        height: min(110px, 35vw);
+    }
+
+    .reaction-box {
+        min-width: min(260px, 80vw);
+        min-height: 140px;
+        font-size: 20px;
+    }
+
+
+    /* CLICKER */
+
+    .clicker-wrap {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .goofy-clicker-face {
+        width: min(210px, 65vw);
+        height: min(210px, 65vw);
+    }
+
+    .clicker-shop {
+        max-height: 400px;
+    }
+
+
+    /* LEADERBOARD */
+
+    .leader-row {
+        grid-template-columns: 40px 1fr 85px;
+        padding: 15px 10px;
+        gap: 8px;
+    }
+
+    .leader-game {
+        font-size: 11px;
+    }
+
+    .leader-score {
+        font-size: 11px;
+    }
+
+
+    /* BADGES */
+
+    .badge-card {
+        padding: 20px;
+    }
+
+
+    /* MODALS */
+
+    .result-popup,
+    .modal {
+        padding: 12px;
+    }
+
+    .result-box,
+    .modal-box {
+        padding: 25px 18px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .result-box h2,
+    .modal-box h2 {
+        font-size: 26px;
+    }
+
+
+    /* ADMIN */
+
+    .admin-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-height: 55vh;
+        overflow-y: auto;
+    }
+
+    .admin-grid button {
+        min-height: 48px;
+        font-size: 9px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 20px 12px 35px;
+    }
+
+    .update-banner {
+        padding: 15px;
+        min-height: 70px;
+    }
+
+    .update-banner strong {
+        font-size: 11px;
+    }
+
+    .update-banner small {
+        font-size: 7px;
+    }
+
+    .update-arrow {
+        font-size: 22px;
+    }
+}
+
+
+/* REALLY SMALL PHONES */
+@media (max-width: 380px) {
+
+    .brand > span:last-child {
+        font-size: 9px;
+    }
+
+    .brand-icon {
+        width: 29px;
+        height: 29px;
+    }
+
+    .profile-button {
+        padding: 6px;
+    }
+
+    #topUsername {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero {
+        min-height: 450px;
+    }
+
+    .stats-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-card {
+        padding: 13px;
+    }
+
+    .stat-card span {
+        font-size: 8px;
+    }
+
+    .stat-card strong {
+        font-size: 19px;
+    }
+
+    .game-hud strong {
+        font-size: 13px;
+    }
+
+    .game-top {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .game-top > div {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        order: -1;
+    }
+
+    .back-btn,
+    .restart-btn {
+        width: 100%;
+    }
+}
+
+
+/* TOUCH DEVICES
+   Remove hover movement that can feel weird on phones */
+@media (hover: none) and (pointer: coarse) {
+
+    .game-card:hover,
+    .quick-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .primary-btn:hover {
+        transform: none;
+    }
+
+    .game-card,
+    .quick-card,
+    .primary-btn {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+        touch-action: manipulation;
+    }
+}
+
+/* =========================================
+   MOBILE GAME CONTROLS
+========================================= */
+
+.touch-controls {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    z-index: 50;
+
+    width: min(95%, 420px);
+
+    pointer-events: none;
+}
+
+.touch-control {
+    pointer-events: auto;
+
+    min-width: 64px;
+    min-height: 58px;
+
+    padding: 12px 18px;
+
+    border: 1px solid rgba(0, 247, 255, .4);
+    border-radius: 12px;
+
+    background: rgba(0, 247, 255, .1);
+    color: #00f7ff;
+
+    font-family: Orbitron, sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 20px rgba(0, 247, 255, .12);
+
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+
+    user-select: none;
+}
+
+.touch-control:active {
+    transform: scale(.92);
+
+    background: rgba(0, 247, 255, .25);
+
+    box-shadow:
+        0 0 25px rgba(0, 247, 255, .35);
+}
+
+.touch-hint {
+    position: absolute;
+
+    left: 50%;
+    bottom: 18px;
+
+    transform: translateX(-50%);
+
+    padding: 10px 16px;
+
+    border: 1px solid rgba(0, 247, 255, .25);
+    border-radius: 10px;
+
+    background: rgba(5, 6, 10, .8);
+
+    color: #00f7ff;
+
+    font-family: Orbitron, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    pointer-events: none;
+
+    white-space: nowrap;
+}
+
+
+/* PHONE */
+@media (max-width: 600px) {
+
+    .touch-controls {
+        bottom: 12px;
+        gap: 7px;
+    }
+
+    .touch-control {
+        min-width: 58px;
+        min-height: 54px;
+
+        padding: 10px 14px;
+
+        font-size: 12px;
+    }
+
+    .touch-hint {
+        font-size: 8px;
+        bottom: 12px;
+    }
+}
+
+
+/* VERY SMALL PHONE */
+@media (max-width: 380px) {
+
+    .touch-control {
+        min-width: 52px;
+        min-height: 50px;
+
+        padding: 8px 10px;
+
+        font-size: 11px;
+    }
+}
